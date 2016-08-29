@@ -51,7 +51,39 @@
       <!-- views -->
 
       <div class="container-fluid" id="views">
-        {{"Hello " + "World!"}}
+        <!-- start row -->
+        <div class="row">
+          <!-- sidebar -->
+          <div class="col-sm-2" style="border-right: 1px solid black; border-bottom: 1px solid black">
+            <ul class="nav nav-pills nav-stacked">
+              <li style="margin-top: 10px;"><a href="#">Profile Picture and Name</a></li>
+              <li><a href="#">Friends</a></li>
+              <li><a href="#">Messages</a></li>
+              <li><a href="#">Teams</a></li>
+              <li><a href="#">Blogs</a></li>
+              <li style="margin-bottom: 10px;"><a href="#">Projects</a></li>
+            </ul>
+          </div>
+          <!-- end sidebar -->
+
+          <!-- main views -->
+          <div class="col-sm-8">
+            <div ui-view></div>
+          </div>
+          <!-- end main views -->
+
+          <!-- friend controller -->
+          <div ng-controller="FriendsController as fc">
+            <div class="col-sm-2" style="border-left: 1px solid black; border-bottom: 1px solid black; padding-bottom: 10px;">
+              <h3 style="text-align: center; border-bottom: 1px solid black; padding-bottom: 10px; margin-bottom: 10px;">Chat</h3>
+              <ul class="nav nav-pills nav-stacked" ng-repeat="friend in fc.friends">
+                <li><a href="#">{{friend.name}}</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- end friend controller -->
+        </div>
+        <!-- end row -->
       </div>
 
       <!-- end views -->
@@ -69,7 +101,9 @@
 
       <script src="./js/jquery.min.js"></script>
       <script src="./js/angular.js"></script>
+      <script src="./js/angular-ui-router.min.js"></script>
       <script src="./js/app/app.js"></script>
+      <script src="./js/app/controllers/friends_controller.js"></script>
       <script src="./js/bootstrap.js"></script>
   </body>
 </html>
